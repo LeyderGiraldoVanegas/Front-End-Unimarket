@@ -1,0 +1,142 @@
+<!--<form #f="ngForm" (ngSubmit)="registrar()">
+    <div>
+        <label>Nombre: </label>
+        <input type="text" name="nombre" [(ngModel)]="usuario.nombre" />
+    </div>
+    <div>
+        <label>Email: </label>
+        <input type="email" name="email" [(ngModel)]="usuario.email" />
+    </div>
+    <div>
+        <label>Dirección: </label>
+        <input type="text" name="direccion" [(ngModel)]="usuario.direccion" />
+    </div>
+    <div>
+        <label>Teléfono: </label>
+        <input type="text" name="telefono" [(ngModel)]="usuario.telefono" />
+    </div>
+    <div>
+        <label>Contraseña: </label>
+        <input type="password" name="password" [(ngModel)]="usuario.password" />
+    </div>
+    <!--<button type="submit" [disabled]="f.invalid">Registrarse</button>
+
+    <div>
+        <label>Repetir contraseña: </label>
+        <input type="password" name="confirmaPassword" [(ngModel)]="usuario.confirmaPassword" required />
+    </div>
+
+    <p *ngIf="!sonIguales()" >Las contraseñas no coinciden</p>
+
+    <button type="submit" [disabled]="f.invalid || !sonIguales()" >Registrarse</button>
+</form> -->
+
+<div class="card p-5">
+    <form #f="ngForm" (ngSubmit)="registrar()">
+        <h2 class="fw-bold mb-5">Sign up now</h2>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre: </label>
+            <div class="col-sm-10">
+                <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
+    
+    (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre" [(ngModel)]="usuario.nombre"
+                    required maxlength="50" />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Email: </label>
+            <div class="col-sm-10">
+
+                <input #email="ngModel" class="form-control" [ngClass]="email.invalid &&
+
+        (email.dirty || email.touched) ? 'is-invalid' : ''" type="email" name="email" [(ngModel)]="usuario.email" email
+                    required />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Dirección: </label>
+            <div class="col-sm-10">
+                <input #direccion="ngModel" class="form-control" [ngClass]="direccion.invalid &&
+        (direccion.dirty || direccion.touched) ? 'is-invalid' : ''" type="text" name="direccion"
+                    [(ngModel)]="usuario.direccion" required />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Teléfono: </label>
+            <div class="col-sm-10">
+                <input #telefono="ngModel" class="form-control" [ngClass]="telefono.invalid &&
+        (telefono.dirty || telefono.touched) ? 'is-invalid' : ''" type="text" name="telefono"
+                    [(ngModel)]="usuario.telefono" required />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Contraseña: </label>
+            <div class="col-sm-10">
+                <input #password="ngModel" class="form-control" [ngClass]="password.invalid &&
+        
+        (confirmacion.dirty || confirmacion.touched) || !sonIguales() ? 'is-invalid' : ''" type="password"
+                    name="password" [(ngModel)]="usuario.password" required />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Repetir contraseña: </label>
+            <div class="col-sm-10">
+                <input #confirmacion="ngModel" class="form-control" [ngClass]="confirmacion.invalid && (confirmacion.dirty || confirmacion.touched) ||
+        !sonIguales() ? 'is-invalid' : ''" type="password" name="confirmaPassword"
+                    [(ngModel)]="usuario.confirmaPassword" required />
+
+            </div>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="!sonIguales()">Las contraseñas no
+            coinciden</div>
+        <button type="submit" [disabled]="f.invalid || !sonIguales()" class="btn btn-primary">
+            <i class="fa-solid fa-circle-plus me-1"></i>
+            Registrarse
+        </button>
+        
+        <app-alerta [alerta]="alerta"></app-alerta>
+        
+    </form>
+</div>
+
+<!--
+    <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded-4 shadow">
+                <div class="modal-body p-5">
+                  <h2 class="fw-bold mb-0">What's new</h2>
+          
+                  <ul class="d-grid gap-4 my-5 list-unstyled small">
+                    <li class="d-flex gap-4">
+                      <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+                      <div>
+                        <h5 class="mb-0">Grid view</h5>
+                        Not into lists? Try the new grid view.
+                      </div>
+                    </li>
+                    <li class="d-flex gap-4">
+                      <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+                      <div>
+                        <h5 class="mb-0">Bookmarks</h5>
+                        Save items you love for easy access later.
+                      </div>
+                    </li>
+                    <li class="d-flex gap-4">
+                      <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+                      <div>
+                        <h5 class="mb-0">Video embeds</h5>
+                        Share videos wherever you go.
+                      </div>
+                    </li>
+                  </ul>
+                  <button type="submit" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Great, thanks!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+-->

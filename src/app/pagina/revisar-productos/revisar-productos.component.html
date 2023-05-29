@@ -1,0 +1,61 @@
+<div class="card p-4">
+    <div>
+        <button (click)="iraBusquedaEstado('Eliminado')" class="btn btn-primary btn-categoria">Eliminado</button>
+        <button (click)="iraBusquedaEstado('INACTIVO')" class="btn btn-primary btn-categoria">INACTIVO</button>
+        <button (click)="iraBusquedaEstado('RECHAZADO')" class="btn btn-primary btn-categoria">RECHAZADO</button>
+        <button (click)="iraBusquedaEstado('ACTIVO')" class="btn btn-primary btn-categoria">ACTIVO</button>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+                <th>Imágenes</th>
+                <th>Categorías</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let item of productos">
+
+                <td>
+                    <p>{{item.codigo}}</p>
+                </td>
+                <td>
+                    <p>{{item.nombre}}</p>
+                </td>
+                <td>
+                    <p>{{item.descripcion}}</p>
+                </td>
+                <td>
+                    <p>{{item.precio}}</p>
+                </td>
+                <td>
+                    <p>{{item.unidades}}</p>
+                </td>
+                <td><img [src]="item.imagenes" width="120" /> </td>
+                <td>
+                    <p>{{item.categoriaList}}</p>
+                </td>
+                <td>
+                    <!--<button type="button" class="btn btn-warning rounded-circle me-2"><i
+                            class="fa-solid fa-pen"></i></button>               routerLink="/editar-producto/{{item.codigo}}" -->
+                    <button type="button" routerLink="/revisar-productos/aprobar/{{item.codigo}}"
+                        class="boton-chulo">&#10003;></button>
+
+                    <button type="button" routerLink="/revisar-productos/rechazar/{{item.codigo}}"
+                        class="boton-x fa-sm"></button>
+
+                </td>
+
+                <th>
+                </th>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

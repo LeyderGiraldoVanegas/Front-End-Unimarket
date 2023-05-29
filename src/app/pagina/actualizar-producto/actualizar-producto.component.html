@@ -1,0 +1,53 @@
+<!--                           -->
+
+<div class="row">
+    <div class="col">
+        <h2>Producto</h2>
+    </div>
+</div>
+
+<div class="card p-5">
+    <form #f="ngForm">
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre:</label>
+            <div class="col-sm-10">
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="producto.nombre" required
+                    class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Descripción:</label>
+            <div class="col-sm-10">
+                <input type="text" id="descripcion" name="descripcion" [(ngModel)]="producto.descripcion" required
+                    class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Precio:</label>
+            <div class="col-sm-10">
+                <input type="text" id="precio" name="precio" [(ngModel)]="producto.precio" required
+                    class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Unidades:</label>
+            <div class="col-sm-10">
+                <input type="text" id="unidades" name="unidades" [(ngModel)]="producto.unidades" required
+                    class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Imagen:</label>
+            <div class="col-sm-10">
+                <img *ngFor="let img of producto.imagenes" src="{{img}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Categoría:</label>
+            <div class="col-sm-10">
+                <p *ngFor="let cat of producto.categoriaList">- {{cat}}</p>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="save-button" (click)="actualizarProducto()">Guardar Cambios</button>
+</div>

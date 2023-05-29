@@ -1,0 +1,31 @@
+.boton-x {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .boton-x:before,
+  .boton-x:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 2px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+  }
+  
+  .boton-x:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  .boton-x:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  

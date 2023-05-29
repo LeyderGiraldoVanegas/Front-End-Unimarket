@@ -1,0 +1,140 @@
+<div class="card p-5">
+    <p>Detalle Producto </p>
+
+    <div class="row">
+        <div class="col">
+            <h2>Producto</h2>
+            <!-- <a href=" ">Ver todas</a>-->
+        </div>
+    </div>
+
+    <div class="card p-5">
+        <form #f="ngForm">
+        <div >
+            <div >
+                <!-- class="col vertical-line" -->
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-10">
+
+                        <p>{{producto.nombre}}</p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Descripcion: </label>
+                    <div class="col-sm-10">
+                        <p>{{producto.descripcion}}</p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Precio: </label>
+                    <div class="col-sm-10">
+
+                        <p>{{producto.precio}}</p>
+
+                    </div>
+
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Unidades: </label>
+                    <div class="col-sm-10">
+                        <p>{{producto.unidades}}</p>
+                    </div>
+
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Imagen: </label>
+                    <img *ngFor="let img of producto.imagenes" src={{img}}>
+
+
+                    <!--*ngFor="let img of item.imagenes" {{img}}
+                    <img src="http://res.cloudinary.com/dzoevuzey/image/upload/v1685176460/proyecto/twdbzqtwy7vfohhzv2x9.jpg">
+-->
+                </div>
+
+                <div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Categoría: </label>
+
+                        <p *ngFor="let cat of producto.categoriaList">- {{cat}}</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="col">
+                <h1>Lista Usario</h1>
+                <div class="col-sm-10">
+                    <div class="mb-3 row" *ngFor="let u of usuarios"></div>
+                    <p>{{u.nombre}}</p
+                </div>
+            </div>>-->
+        </div>
+
+        </form>
+
+
+
+
+    </div>
+
+
+    <p>
+
+    </p>
+    <button (click)="agregarCarrito()" class="btn btn-outline-primary"><i class="fa-solid
+            fa-cart-plus me-2"></i>Agregar al carrito</button>
+</div>
+<div lass="card p-5">
+    <p>Comentario:</p>
+
+    <!-- Crear comentario -->
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Mensaje:</label>
+        <div class="col-sm-8">
+            <input #Mensaje="ngModel" class="form-control"
+                [ngClass]="Mensaje.invalid && (Mensaje.dirty || Mensaje.touched) ? 'is-invalid' : ''" type="text"
+                name="Mensaje" [(ngModel)]="comentario.menasaje" required maxlength="50" />
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary" (click)="agregarComentario()">Agregar Comentario</button>
+        </div>
+    </div>
+
+    <form #f="ngForm">
+
+    </form>
+
+</div>
+
+<div class="card p-5">
+    <h5>Comentarios:</h5>
+    <div>
+        <div class="mb-3 row" *ngFor="let item of comentarios">
+            <div class="col-sm-2">
+                <label for="mensaje" class="col-form-label">Mensaje:</label>
+            </div>
+            <div class="col-sm-10">
+                <p>{{ item.mensaje }}</p>
+            </div>
+            <div class="col-sm-2">
+                <label for="fechaCreacion" class="col-form-label">Fecha de Creación:</label>
+            </div>
+            <div class="col-sm-10">
+                <p>{{(item.fechaCreacion)}}</p>
+            </div>
+            <div class="col-sm-2">
+                <label for="usuarioComentario" class="col-form-label">Usuario:</label>
+            </div>
+            <div class="col-sm-10">
+                <p>{{ item.usuarioComentario }}</p>
+            </div>
+            <hr> <!-- Línea adicional -->
+
+
+        </div>
+    </div>
+</div>

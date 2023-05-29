@@ -1,0 +1,75 @@
+<div class="card p-5">
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://http2.mlstatic.com/D_NQ_937834-MLA69393511417_052023-OO.webp" class="d-block w-100"
+                    alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://http2.mlstatic.com/D_NQ_790622-MLA69393513459_052023-OO.webp" class="d-block w-100"
+                    alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://http2.mlstatic.com/D_NQ_807444-MLA54784979760_032023-OO.webp" class="d-block w-100"
+                    alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <div class="row">
+        <h2>Categoría populares</h2>
+        <div class="col d-inline-flex">
+
+            <button (click)="iraBusqueda('TECNOLOGIA')" class="btn btn-categoria">TECNOLOGIA</button>
+            <button (click)="iraBusqueda('HOGAR')" class="btn btn-categoria">HOGAR</button>
+            <button (click)="iraBusqueda('COCHES')" class="btn btn-categoria">COCHES</button>
+            <button (click)="iraBusqueda('PINTURA')" class="btn btn-categoria">PINTURA</button>
+            <button (click)="iraBusqueda('HERRAMIENTAS')" class="btn btn-categoria">HERRAMIENTAS</button>
+           <!-- <button (click)="iraBusqueda('DEPORTE')" class="btn btn-categoria">DEPORTE</button>
+           <button (click)="iraBusqueda('VIDEOJUEGO')" class="btn btn-categoria">VIDEOJUEGO</button>-->
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h2>Producto</h2>
+           <!-- <a href=" ">Ver todas</a>-->
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col" *ngFor="let item of productos">
+            <div class="card" style="width: 18rem;">
+                <img src="https://picsum.photos/450/225" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <button routerLink="" class="fa-regular fa-heart caja-1" style="color: #e90c0c;"></button>
+                    <h5 class="card-title">{{item.nombre}}</h5>
+                    <p class="card-text">{{item.descripcion}}</p>
+
+                    <p><s class="card-text" style="font-size:16px">$&nbsp;{{item.precio}}</s> - 10 % </p>
+                    <p class="card-text" style="font-size:16px">$&nbsp;{{item.precio}}</p>
+
+
+                    <span class="badge text-bg-primary me-3" *ngFor="let cat of item.categoriaList">{{cat}}</span>
+                    <a href="/detalle-producto/{{item.codigo}}" class="btn btn-warning">Ver Detalle</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
